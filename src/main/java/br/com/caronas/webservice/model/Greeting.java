@@ -1,4 +1,4 @@
-package model;
+package br.com.caronas.webservice.model;
 
 public class Greeting {
 
