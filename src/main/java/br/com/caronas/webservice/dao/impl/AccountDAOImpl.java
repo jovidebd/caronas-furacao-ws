@@ -5,9 +5,11 @@ import br.com.caronas.webservice.dao.AbstractDAO;
 import br.com.caronas.webservice.dao.AccountDAO;
 import br.com.caronas.webservice.jdbc.AccountRowMapper;
 import br.com.caronas.webservice.model.Account;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Types;
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,8 +27,8 @@ public class AccountDAOImpl extends AbstractDAO implements AccountDAO {
     public Account getAccountById(String id) {
         try {
 
-            HashMap<String, String> params = new HashMap<>();
-            params.put("id", id);
+            MapSqlParameterSource params = new MapSqlParameterSource();
+            params.addValue("id", id, Types.INTEGER);
 
             List<Account> accountList = new NamedParameterJdbcTemplate(this.getJdbcTemplate()).query(SELECT_ACCOUNT_BY_ID,
                     params,

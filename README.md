@@ -5,6 +5,10 @@ To run the web service and test locally just execute the command `mvn spring-boo
 will download all depedencies and deploy the application on a local servlet container,
 Run the URL `http://localhost:8080/account/test` in the browser to test server response
 
+## Configure Local Database
+Download and configure a local PostgreSql Database.
+After completing the database configuration, run the query located at `sql/create_tables.sql`
+
 ## Change JDBC Configuration Parameters
 In the file `jdbc.properties` change the following properties to configure the data source according to your local database.
 ```
