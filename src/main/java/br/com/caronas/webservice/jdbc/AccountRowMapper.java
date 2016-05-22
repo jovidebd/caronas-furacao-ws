@@ -11,6 +11,11 @@ public class AccountRowMapper implements RowMapper<Account> {
 
     @Override
     public Account mapRow(ResultSet resultSet, int i) throws SQLException {
-        return null;
+        Account account = new Account();
+
+        account.setId(resultSet.getLong("account_id"));
+        account.setUsername(resultSet.getString("username"));
+        account.setPassword(resultSet.getString("password"));
+        return account;
     }
 }

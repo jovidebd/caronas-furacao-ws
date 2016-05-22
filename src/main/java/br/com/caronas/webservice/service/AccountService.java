@@ -1,8 +1,21 @@
 package br.com.caronas.webservice.service;
 
+import br.com.caronas.webservice.dao.AccountDAO;
+import br.com.caronas.webservice.model.Account;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AccountService {
-    // TODO
+
+    private AccountDAO accountDAO;
+
+    @Autowired
+    private void setAccountDAO(AccountDAO accountDAO) {
+        this.accountDAO = accountDAO;
+    }
+
+    public Account getAccountById(String id) {
+        return accountDAO.getAccountById(id);
+    }
 }
